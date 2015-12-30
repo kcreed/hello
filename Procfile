@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* hello
+web: java $JAVA_OPTS -cp /target/Hello-0.0.1-SNAPSHOT/register.jsp
