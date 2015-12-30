@@ -3,7 +3,7 @@
  */
 function validateForm()
 {
-   /* if(document.registrationForm.firstname.value=="")
+   if(document.registrationForm.firstname.value=="")
     {
       alert("First Name is required");
       document.registrationForm.firstname.focus();
@@ -123,5 +123,5 @@ function validateForm()
       alert("Country is required");
       document.registrationForm.country.focus();
       return false;
-    } */
+    }
 }
