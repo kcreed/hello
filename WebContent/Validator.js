@@ -15,7 +15,7 @@ function validateForm()
       document.registrationForm.firstname.focus();
       return false;
     } 
-    else if(!isNaN(document.registrationForm.firstname.value))
+    else if(document.registrationForm.firstname.value == [0-9])
     {
       alert("First Name cannot contain numbers");
       document.registrationForm.firstname.focus();
