@@ -15,7 +15,7 @@ function validateForm()
       document.registrationForm.firstname.focus();
       return false;
     } 
-    else if(document.registrationForm.firstname.value == "[-'a-zA-Z]")
+    else if(document.registrationForm.firstname.value == /^[A-z]+$/)
     {
       alert("First Name cannot contain numbers");
       document.registrationForm.firstname.focus();
