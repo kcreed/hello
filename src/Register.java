@@ -1,5 +1,3 @@
-package com;
-
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
