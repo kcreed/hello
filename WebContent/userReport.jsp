@@ -4,6 +4,7 @@
 
 <%@ page import="java.sql.*" %>
 
+
 <% Class.forName("org.postgresql.Driver"); %>
 
 <html>
@@ -18,8 +19,8 @@
             Connection connection = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/postgres", "postgres",
 					"chaching1");
-
-            Statement statement = connection.createStatement() ;
+			
+			Statement statement = connection.createStatement() ;
             ResultSet resultset = 
                 statement.executeQuery("select * from public.users order by date desc") ; 
         %>
