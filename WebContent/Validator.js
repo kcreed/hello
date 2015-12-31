@@ -20,6 +20,7 @@ function validateForm()
       alert("First Name cannot contain numbers");
       document.registrationForm.firstname.focus();
       return false;
+      // test comment
     }
     
     else if(document.registrationForm.lastname.value=="")
