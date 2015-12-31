@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ page import="java.sql.*" %>
-
+<%@ page import="com.hello.dbconnect.HerokuDBConnect" %>
 
 <% Class.forName("org.postgresql.Driver"); %>
 
@@ -16,10 +16,11 @@
         <h1>Registered User Report</h1>
 
         <% 
-            Connection connection = DriverManager.getConnection(
+            /* Connection connection = DriverManager.getConnection(
                 "jdbc:postgresql://localhost:5432/postgres", "postgres",
-					"chaching1");
-			
+					"chaching1"); */
+			//HerokuDBConnect dbc = new HerokuDBConnect();
+			Connection connection = HerokuDBConnect.getConnection();
 			Statement statement = connection.createStatement() ;
             ResultSet resultset = 
                 statement.executeQuery("select * from public.users order by date desc") ; 
