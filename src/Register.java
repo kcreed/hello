@@ -1,9 +1,13 @@
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
+
 import java.sql.*;
 import java.util.Date;
-import java.util.regex.*;
+//import java.util.regex.*;
 
 public class Register extends HttpServlet {
 
@@ -40,6 +44,16 @@ public class Register extends HttpServlet {
 
 		return valid;
 	}
+	
+	private static Connection getConnection() throws URISyntaxException, SQLException {
+	    URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+	    String username = dbUri.getUserInfo().split(":")[0];
+	    String password = dbUri.getUserInfo().split(":")[1];
+	    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + dbUri.getPath();
+
+	    return DriverManager.getConnection(dbUrl, username, password);
+	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
@@ -67,10 +81,12 @@ public class Register extends HttpServlet {
 				// loading drivers for postgresql
 				Class.forName("org.postgresql.Driver");
 
-				// creating connection with the database
+				/*// creating connection with the database
 				Connection con = DriverManager.getConnection(
 						"jdbc:postgresql://localhost:5432/postgres",
-						"postgres", "chaching1");
+						"postgres", "chaching1");*/	
+				
+				Connection con = getConnection();
 
 				PreparedStatement ps = con
 						.prepareStatement("insert into public.users values(?,?,?,?,?,?,?,?,?)");
